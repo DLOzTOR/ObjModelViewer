@@ -134,7 +134,7 @@ int main()
         glBindVertexArray(vao);
         glEnableVertexAttribArray(0);
         glEnableVertexAttribArray(1);
-        glDrawArrays(GL_TRIANGLES, 0, 108);
+        glDrawArrays(GL_TRIANGLES, 0, 36);
         window.display();//Render end
     }
     std::cout << "SFML window cloased!\n";

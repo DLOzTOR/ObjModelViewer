@@ -10,6 +10,7 @@ namespace Render {
 	private:
 		GLuint vaoId;
 		GLuint VAOposId;
+		GLuint UIposId;
 	public:
 		GLuint flatCount;
 		VAO();

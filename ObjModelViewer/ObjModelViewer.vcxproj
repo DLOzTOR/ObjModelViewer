@@ -133,20 +133,24 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="Engine\Entity.cpp" />
     <ClCompile Include="Render\Model.cpp" />
     <ClCompile Include="ObjModelViewer.cpp" />
     <ClCompile Include="Render\Shader.cpp" />
     <ClCompile Include="Render\Texture.cpp" />
+    <ClCompile Include="Engine\Terrain.cpp" />
     <ClCompile Include="Utils\ReadFile.cpp" />
     <ClCompile Include="Utils\StringParce.cpp" />
     <ClCompile Include="Render\VAO.cpp" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="Engine\Entity.h" />
     <ClInclude Include="Render\Model.h" />
     <ClInclude Include="Render\glewInit.h" />
     <ClInclude Include="Render\Render.h" />
     <ClInclude Include="Render\Shader.h" />
     <ClInclude Include="Render\Texture.h" />
+    <ClInclude Include="Engine\Terrain.h" />
     <ClInclude Include="Utils\ReadFile.h" />
     <ClInclude Include="Utils\StringParce.h" />
     <ClInclude Include="Render\VAO.h" />

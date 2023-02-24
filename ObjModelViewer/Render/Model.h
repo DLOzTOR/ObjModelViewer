@@ -13,7 +13,7 @@ namespace Render {
 		void LoadFromObj(std::string path);
 		void Draw() {
 			vao.Bind();
-			//texture.Bind();
+			texture.Bind();
 			vao.Draw();
 		}
 	};

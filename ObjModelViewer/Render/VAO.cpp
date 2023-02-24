@@ -16,8 +16,10 @@ void Render::VAO::Draw()
 {
 	Bind();
 	glEnableVertexAttribArray(0);
+	glEnableVertexAttribArray(1);
 	glDrawArrays(GL_TRIANGLES, 0, flatCount);
 	glDisableVertexAttribArray(0);
+	glDisableVertexAttribArray(1);
 }
 void Render::VAO::LoadFromObj(std::string path)
 {
@@ -48,9 +50,9 @@ void Render::VAO::LoadFromObj(std::string path)
 			idicies.push_back(std::stoi(StringParce::Split(splitedString[1], "/")[0]) - 1);
 			idicies.push_back(std::stoi(StringParce::Split(splitedString[2], "/")[0]) - 1);
 			idicies.push_back(std::stoi(StringParce::Split(splitedString[3], "/")[0]) - 1);
-			/*uvIdicies.push_back(std::stoi(StringParce::Split(splitedString[1], "/")[1]) - 1);
+			uvIdicies.push_back(std::stoi(StringParce::Split(splitedString[1], "/")[1]) - 1);
 			uvIdicies.push_back(std::stoi(StringParce::Split(splitedString[2], "/")[1]) - 1);
-			uvIdicies.push_back(std::stoi(StringParce::Split(splitedString[3], "/")[1]) - 1);*/
+			uvIdicies.push_back(std::stoi(StringParce::Split(splitedString[3], "/")[1]) - 1);
 		}
 	}
 
@@ -70,14 +72,13 @@ void Render::VAO::LoadFromObj(std::string path)
 	glBindBuffer(GL_ARRAY_BUFFER, VAOposId);
 	glBufferData(GL_ARRAY_BUFFER, verticesInd.size() * sizeof(GLfloat), verticesInd.data(), GL_STATIC_DRAW);
 	glEnableVertexAttribArray(0);
-	//glEnableVertexAttribArray(1);
-	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 3 * sizeof(GLfloat), (const void*)0);
+	glVertexAttribPointer(0, 3, GL_FLOAT, GL_FALSE, 0, (void*)0);
 
-	//glGenBuffers(1, &vbo);
-	//glBindBuffer(GL_ARRAY_BUFFER, vbo);
-	//glBufferData(GL_ARRAY_BUFFER, uvcordsInd.size() * sizeof(GLfloat), uvcordsInd.data(), GL_STATIC_DRAW);
-	//glVertexAttribPointer(Buffers.size(), 2, GL_FLOAT, GL_FALSE,5 * sizeof(GLfloat), (const void*)(3 * sizeof(GLfloat)));
-	//Buffers.push_back(vbo);
+	glGenBuffers(1, &UIposId);
+	glBindBuffer(GL_ARRAY_BUFFER, UIposId);
+	glEnableVertexAttribArray(1);
+	glBufferData(GL_ARRAY_BUFFER, uvcordsInd.size() * sizeof(GLfloat), uvcordsInd.data(), GL_STATIC_DRAW);
+	glVertexAttribPointer(1, 2, GL_FLOAT, GL_FALSE,0, (void*)0);
 	glBindBuffer(GL_ARRAY_BUFFER, 0);
 	glBindVertexArray(0);
 	flatCount = verticesInd.size() / 3;

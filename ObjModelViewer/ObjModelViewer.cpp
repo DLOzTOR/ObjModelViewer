@@ -24,11 +24,11 @@ int main()
     if (glewInit() != GLEW_OK) { std::cout << "Glew init problem" << std::endl; return -1; }
     HadwareInfo();
     Render::Shader shader;
-    //Engine::Terrain terrain;
+    Engine::Terrain terrain;
     //terrain.modeOfRender = GL_LINES;
-    //terrain.GenerateTerraine();
-    shader.addAndCompileShader("Shaders/texture.vert", "Shaders/texture.frag");
-    //shader.addAndCompileShader("Shaders/basic.vert", "Shaders/basic.frag");
+    terrain.GenerateTerraine();
+    //shader.addAndCompileShader("Shaders/texture.vert", "Shaders/texture.frag");
+    shader.addAndCompileShader("Shaders/basic.vert", "Shaders/basic.frag");
     Render::Model model;
     model.texture.LoadTexture("Resources/TexturedCubePaintTexture.png");
     model.LoadFromObj("Resources/TexturedCube.obj");
@@ -67,8 +67,8 @@ int main()
         glUniformMatrix4fv(location, 1, GL_FALSE, &rotationMatrix[0][0]);
         location = glGetUniformLocation(shader.shaderHandle, "TransformMatrix");
         glUniformMatrix4fv(location, 1, GL_FALSE, &m[0][0]);
-        model.Draw();
-        //terrain.Draw();
+        //model.Draw();
+        terrain.Draw();
         window.display();//Render end
     }
     std::cout << "SFML window cloased!\n";

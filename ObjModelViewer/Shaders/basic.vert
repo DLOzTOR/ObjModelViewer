@@ -5,5 +5,5 @@ uniform mat4 RotationMatrix;
 uniform mat4 TransformMatrix;
 void main(){
 	Color = VertexPosition;
-	gl_Position =  TransformMatrix  * RotationMatrix *  vec4( VertexPosition / 70, 1.0 );
+	gl_Position =  TransformMatrix  * RotationMatrix *  vec4( VertexPosition / 25, 1.0 );
 }

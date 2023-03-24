@@ -7,8 +7,8 @@
 #include <cmath>
 
 
-#define xSize 131
-#define ySize 131
+#define xSize 50
+#define ySize 50
 
 
 namespace Engine {
@@ -19,7 +19,6 @@ namespace Engine {
 		GLuint modeOfRender = GL_TRIANGLES;
 		GLuint vaoId;
 		GLuint vboId;
-		std::vector<GLfloat> verticles;
 		GLuint veticlesCount;
 		void GenerateTerraine();
 		void Draw();
@@ -30,7 +29,7 @@ namespace Engine {
 	};
 	class Quad {
 	public:
-		glm::vec3 vertices[4];
+		glm::vec3* vertices = new glm::vec3[4];
 		glm::vec3* triangulate(){
 			glm::vec3 t[] = { vertices[0],vertices[1],vertices[3],
 						      vertices[1],vertices[2],vertices[3]};
@@ -44,6 +43,9 @@ namespace Engine {
 				vertices[1],vertices[3]
 			};
 			return t;
+		}
+		~Quad(){
+			delete[] vertices;
 		}
 	};
 }

@@ -59,8 +59,8 @@ void Render::VAO::LoadFromObj(std::string path)
 	std::cout << idicies.size() <<std::endl;
 	for (unsigned int i = 0; i < idicies.size(); i++) {
 		verticesInd.push_back(vertices[(idicies[i])].x);
-		verticesInd.push_back(vertices[(idicies[i])].y);
 		verticesInd.push_back(vertices[(idicies[i])].z);
+		verticesInd.push_back(vertices[(idicies[i])].y);
 	}	
 	std::cout << verticesInd.size() << std::endl;
 	for (unsigned int i = 0; i < uvIdicies.size(); i++) {

@@ -9,6 +9,7 @@ Render::VAO::VAO()
 Render::VAO::~VAO()
 {
 	glDeleteBuffers(1, &VAOposId);
+	glDeleteBuffers(1, &UIposId);
 	glDeleteVertexArrays(1, &vaoId);
 }
 

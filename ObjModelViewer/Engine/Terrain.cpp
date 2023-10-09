@@ -21,7 +21,7 @@ void Engine::Terrain::GenerateTerraine()
 		{
 			qt[j][i][0] = GLfloat (j - (xSize - 1) / 2);
 			qt[j][i][1] = GLfloat(i - (ySize - 1) / 2);
-			qt[j][i][2] = GLfloat(-static_cast<GLfloat>(std::rand()) / (RAND_MAX  / 3));
+			qt[j][i][2] = GLfloat(-static_cast<GLfloat>(std::rand()) / (RAND_MAX  /6));
 		}
 	}
 	for (int i = 0; i < ySize - 1; i++)
